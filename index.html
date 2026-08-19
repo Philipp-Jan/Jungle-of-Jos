@@ -75,70 +75,138 @@
       <div class="tour-cards">
 
         <!-- TOUR CARD: 1 Day -->
-        <article class="tour-card">
-          <img src="" alt="PLACEHOLDER: Photo representing the 1-day tour (short jungle trail / river)" class="tour-image">
-          <div class="tour-card-body">
-            <h3>1-Day Jungle Trek</h3>
-            <p class="tour-price">€70 <span>per person</span></p>
-            <p class="tour-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-            </p>
-            <a href="#contact" class="btn btn-outline">Ask about this tour</a>
+        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
+          <div class="tour-card-inner">
+
+            <!-- FRONT -->
+            <div class="tour-card-front">
+              <img src="" alt="PLACEHOLDER: Photo representing the 1-day tour (short jungle trail / river)" class="tour-image">
+              <div class="tour-card-body">
+                <h3>1-Day Jungle Trek</h3>
+                <p class="tour-price">€70 <span>per person</span></p>
+                <p class="tour-description-preview">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <button type="button" class="tour-card-flip-btn">Read more</button>
+              </div>
+            </div>
+
+            <!-- BACK -->
+            <div class="tour-card-back">
+              <div class="tour-card-body">
+                <p class="tour-description-full">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                </p>
+                <button type="button" class="tour-card-flip-btn">Back</button>
+              </div>
+            </div>
+
           </div>
         </article>
 
         <!-- TOUR CARD: 2 Days -->
-        <article class="tour-card">
-          <img src="" alt="PLACEHOLDER: Photo representing the 2-day tour (camp site / jungle overnight)" class="tour-image">
-          <div class="tour-card-body">
-            <h3>2-Day Jungle Trek</h3>
-            <p class="tour-price">€130 <span>per person</span></p>
-            <p class="tour-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-            </p>
-            <a href="#contact" class="btn btn-outline">Ask about this tour</a>
+        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
+          <div class="tour-card-inner">
+
+            <!-- FRONT -->
+            <div class="tour-card-front">
+              <img src="" alt="PLACEHOLDER: Photo representing the 2-day tour (camp site / jungle overnight)" class="tour-image">
+              <div class="tour-card-body">
+                <h3>2-Day Jungle Trek</h3>
+                <p class="tour-price">€130 <span>per person</span></p>
+                <p class="tour-description-preview">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <button type="button" class="tour-card-flip-btn">Read more</button>
+              </div>
+            </div>
+
+            <!-- BACK -->
+            <div class="tour-card-back">
+              <div class="tour-card-body">
+                <p class="tour-description-full">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                </p>
+                <button type="button" class="tour-card-flip-btn">Back</button>
+              </div>
+            </div>
+
           </div>
         </article>
 
         <!-- TOUR CARD: 3 Days -->
-        <article class="tour-card">
-          <img src="" alt="PLACEHOLDER: Photo representing the 3-day tour (river tubing / deeper jungle)" class="tour-image">
-          <div class="tour-card-body">
-            <h3>3-Day Jungle Trek</h3>
-            <p class="tour-price">€170 <span>per person</span></p>
-            <p class="tour-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-            </p>
-            <a href="#contact" class="btn btn-outline">Ask about this tour</a>
+        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
+          <div class="tour-card-inner">
+
+            <!-- FRONT -->
+            <div class="tour-card-front">
+              <img src="" alt="PLACEHOLDER: Photo representing the 3-day tour (river tubing / deeper jungle)" class="tour-image">
+              <div class="tour-card-body">
+                <h3>3-Day Jungle Trek</h3>
+                <p class="tour-price">€170 <span>per person</span></p>
+                <p class="tour-description-preview">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <button type="button" class="tour-card-flip-btn">Read more</button>
+              </div>
+            </div>
+
+            <!-- BACK -->
+            <div class="tour-card-back">
+              <div class="tour-card-body">
+                <p class="tour-description-full">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                </p>
+                <button type="button" class="tour-card-flip-btn">Back</button>
+              </div>
+            </div>
+
           </div>
         </article>
 
         <!-- TOUR CARD: 7 Days -->
-        <article class="tour-card">
-          <img src="" alt="PLACEHOLDER: Photo representing the 7-day tour (expedition-style, remote jungle)" class="tour-image">
-          <div class="tour-card-body">
-            <h3>7-Day Jungle Expedition</h3>
-            <p class="tour-price">€300 <span>per person</span></p>
-            <p class="tour-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-            </p>
-            <a href="#contact" class="btn btn-outline">Ask about this tour</a>
+        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
+          <div class="tour-card-inner">
+
+            <!-- FRONT -->
+            <div class="tour-card-front">
+              <img src="" alt="PLACEHOLDER: Photo representing the 7-day tour (expedition-style, remote jungle)" class="tour-image">
+              <div class="tour-card-body">
+                <h3>7-Day Jungle Expedition</h3>
+                <p class="tour-price">€300 <span>per person</span></p>
+                <p class="tour-description-preview">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+                <button type="button" class="tour-card-flip-btn">Read more</button>
+              </div>
+            </div>
+
+            <!-- BACK -->
+            <div class="tour-card-back">
+              <div class="tour-card-body">
+                <p class="tour-description-full">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                </p>
+                <button type="button" class="tour-card-flip-btn">Back</button>
+              </div>
+            </div>
+
           </div>
         </article>
 
