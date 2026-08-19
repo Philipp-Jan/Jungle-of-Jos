@@ -404,6 +404,8 @@ section {
 
 .tour-table {
   width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
   border-collapse: collapse;
   background-color: var(--color-bg);
   border-radius: var(--radius);

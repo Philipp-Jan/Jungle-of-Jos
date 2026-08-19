@@ -142,7 +142,21 @@ sticky nav.
 - Full HTML skeleton, all 5 sections, semantic structure, commented per section.
 - Full CSS with variables, base layout, responsive grid for tour cards and gallery.
 - Tour cards implemented as working flip cards (front preview / back full text).
-- Real pricing in place. Placeholder Lorem Ipsum text for all descriptions.
+- Real pricing in place: €70 (1-day), €130 (2-day), €170 (3-day), €300 (7-day).
+- **All copy is final** (written collaboratively, no more Lorem Ipsum anywhere):
+  - Hero headline/subtitle
+  - About George bio
+  - All 4 tour descriptions (preview sentence + full back-of-card text)
+  - Tour comparison table (now just "Tour" + "Price" columns, tour names include
+    duration e.g. "1-Day Jungle Trek", so the separate Duration column was removed
+    as redundant/ambiguous; table width capped at 420px and centered instead of
+    spanning full section width)
+  - Contact section location text ("Based in Bukit Lawang, Sumatra, Indonesia")
+  - Footer (copyright year is now auto-updated via JS: `new Date().getFullYear()`,
+    so it never needs manual yearly updates)
+  - Branding finalized as **"Jungle of George"** (used in nav logo, page title,
+    meta description, and footer) — this replaced the earlier working name
+    "George's Jungle Tours" everywhere.
 - All images are placeholders: empty `src=""` with descriptive `alt` text stating
   exactly what photo should go there (e.g. `alt="PLACEHOLDER: Orangutan in the
   wild, Sumatran jungle"`) — use these alt texts as the shot list when sourcing
@@ -153,25 +167,48 @@ sticky nav.
 **Explicitly NOT done yet / open next steps:**
 1. **Language switcher has no JS logic yet** — dropdown exists in HTML but doesn't
    do anything. Needs: `lang/en.json` + `lang/id.json` content files, and vanilla
-   JS to swap text content based on selection.
-2. **Real tour descriptions** — currently Lorem Ipsum, need real copy from the
-   developer (3-10 sentences per tour, English first, then AI-translated to
-   Indonesian).
-3. **Real photos** — need to source from George's Instagram or take new ones,
+   JS to swap text content based on selection. All English copy is now final and
+   ready to be translated to Indonesian and moved into this structure.
+2. **Real photos** — need to source from George's Instagram or take new ones,
    matching the `alt` text placeholders throughout the HTML.
-4. **Real WhatsApp/Instagram links** — currently `href="#"` placeholders in Hero
+3. **Real WhatsApp/Instagram links** — currently `href="#"` placeholders in Hero
    and Contact sections.
-5. **Real village/location name** — currently a placeholder in the Contact section
-   (`[Village Name]`).
-6. **Visual fine-tuning** — colors, spacing, typography polish was explicitly
+4. **Visual fine-tuning** — colors, spacing, typography polish was explicitly
    deferred to "the very end" by the developer; structure was prioritized first.
-7. **Domain decision** — George has no domain or hosting currently and doesn't
+   The developer noted the About section wording may still get minor edits later,
+   but is usable as-is for now.
+5. **Domain decision** — George has no domain or hosting currently and doesn't
    understand recurring costs. Still open: who registers/pays for the domain long
    term, or whether to launch on a free subdomain (e.g. GitHub Pages default
    `*.github.io` URL) initially.
-8. **No README for volunteers yet** — this document partially serves that purpose,
-   but a shorter, more task-oriented "how to change a price / add a photo / add a
-   language" guide was also planned and not yet written.
+6. **No task-oriented README for volunteers yet** — this document covers the
+   "why" behind decisions, but a shorter "how to change a price / add a photo /
+   add a language" guide was also planned and not yet written.
+
+## Facts About George & The Tours (for future copy/content work)
+
+Useful background if more copy needs to be written or adjusted later:
+
+- George is 54, born and raised in Bukit Lawang — youngest of eight siblings, his
+  whole family is local to the village. Two children of his own, who attend
+  school in the city.
+- He leads treks himself, backed by a small team of local guides.
+- Speaks English (functional, not fluent — keep marketing copy about this
+  understated/positive, don't oversell his fluency).
+- Can also help arrange onward travel (bus or private car) to Medan, Berastagi,
+  or Lake Toba — mentioned briefly in the About bio as a bonus service.
+- All tours take place in the jungle around Bukit Lawang. Wildlife includes
+  long-tailed macaques, Thomas leaf monkeys, pig-tailed macaques, and — the main
+  draw — wild orangutans (including, rarely, dominant alpha males or mothers
+  with babies; these are genuinely rare sightings, so copy intentionally avoids
+  overpromising them, especially on shorter tours).
+- Every tour includes a fresh jungle lunch and fruit snacks, and ends with a
+  tube ride down the river back to town.
+- Tours of 2 days or longer additionally include dinner and an overnight stay in
+  simple jungle huts with mosquito nets.
+- Tour differentiation is primarily length → more distance covered, quieter/
+  deeper parts of the forest reached, and higher (but still not guaranteed)
+  chances of rarer sightings on longer tours.
 
 ## Working Style / Preferences (for whoever continues this)
 
