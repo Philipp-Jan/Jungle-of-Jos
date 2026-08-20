@@ -19,6 +19,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#tours">Tours</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="faq.html">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <!-- Language switcher placeholder - wird in einem späteren Schritt mit JS gefüllt -->
@@ -71,124 +72,56 @@
       <div class="tour-cards">
 
         <!-- TOUR CARD: 1 Day -->
-        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
-          <div class="tour-card-inner">
-
-            <!-- FRONT -->
-            <div class="tour-card-front">
-              <img src="" alt="PLACEHOLDER: Photo representing the 1-day tour (short jungle trail / river)" class="tour-image">
-              <div class="tour-card-body">
-                <h3>1-Day Jungle Trek</h3>
-                <p class="tour-price">€70 <span>per person</span></p>
-                <p class="tour-description-preview">
-                  A perfect introduction to the jungle — trek through the rainforest, spot wild monkeys and orangutans, then float back to town on the river.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Read more</button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="tour-card-back">
-              <div class="tour-card-body">
-                <p class="tour-description-full">
-                  This is the perfect choice if you're short on time but still want a real taste of the Sumatran jungle. You'll trek through the rainforest with George, keeping an eye out for long-tailed macaques, Thomas leaf monkeys, and — if you're lucky — wild orangutans swinging through the canopy. Along the way, George shares his knowledge of the forest and its animals, built up over a lifetime in Bukit Lawang. Around midday, you'll stop for a fresh jungle lunch and a snack of local fruit before continuing the trek. At the end of the day, instead of walking back, you'll float down the river on an inner tube — a relaxed and fun way to return to town. A great option for travelers who want to experience the jungle without committing to an overnight stay.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Back</button>
-              </div>
-            </div>
-
+        <a href="tours/1-day.html" class="tour-card">
+          <img src="" alt="PLACEHOLDER: Photo representing the 1-day tour (short jungle trail / river)" class="tour-image">
+          <div class="tour-card-body">
+            <h3>1-Day Jungle Trek</h3>
+            <p class="tour-price">€70 <span>per person</span></p>
+            <p class="tour-description-preview">
+              A perfect introduction to the jungle — trek through the rainforest, spot wild monkeys and orangutans, then float back to town on the river.
+            </p>
+            <span class="tour-card-link">View details →</span>
           </div>
-        </article>
+        </a>
 
         <!-- TOUR CARD: 2 Days -->
-        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
-          <div class="tour-card-inner">
-
-            <!-- FRONT -->
-            <div class="tour-card-front">
-              <img src="" alt="PLACEHOLDER: Photo representing the 2-day tour (camp site / jungle overnight)" class="tour-image">
-              <div class="tour-card-body">
-                <h3>2-Day Jungle Trek</h3>
-                <p class="tour-price">€130 <span>per person</span></p>
-                <p class="tour-description-preview">
-                  A full jungle adventure with a night under mosquito nets in the rainforest — more time, more trails, more chances to spot orangutans.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Read more</button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="tour-card-back">
-              <div class="tour-card-body">
-                <p class="tour-description-full">
-                  With two days in the jungle, you get real time to slow down and explore beyond the trails closest to town. You'll trek deeper into the rainforest with George, spotting macaques, Thomas leaf monkeys, and — with some luck — orangutans along the way. Both days include a fresh jungle lunch and fruit snacks, and on the first night you'll enjoy a cooked dinner before settling into a simple jungle hut with a mosquito net for the night. Falling asleep to the sounds of the rainforest is an experience in itself. On the second day, after more trekking, you'll make your way back to town the fun way — floating down the river on an inner tube. A great choice for travelers who want more than a day trip, without a huge time commitment.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Back</button>
-              </div>
-            </div>
-
+        <a href="tours/2-day.html" class="tour-card">
+          <img src="" alt="PLACEHOLDER: Photo representing the 2-day tour (camp site / jungle overnight)" class="tour-image">
+          <div class="tour-card-body">
+            <h3>2-Day Jungle Trek</h3>
+            <p class="tour-price">€130 <span>per person</span></p>
+            <p class="tour-description-preview">
+              A full jungle adventure with a night under mosquito nets in the rainforest — more time, more trails, more chances to spot orangutans.
+            </p>
+            <span class="tour-card-link">View details →</span>
           </div>
-        </article>
+        </a>
 
         <!-- TOUR CARD: 3 Days -->
-        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
-          <div class="tour-card-inner">
-
-            <!-- FRONT -->
-            <div class="tour-card-front">
-              <img src="" alt="PLACEHOLDER: Photo representing the 3-day tour (river tubing / deeper jungle)" class="tour-image">
-              <div class="tour-card-body">
-                <h3>3-Day Jungle Trek</h3>
-                <p class="tour-price">€170 <span>per person</span></p>
-                <p class="tour-description-preview">
-                  Go further into the jungle over three days, with two nights among the rainforest sounds and a good chance of spotting orangutans.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Read more</button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="tour-card-back">
-              <div class="tour-card-body">
-                <p class="tour-description-full">
-                  Three days gives you the time to really get into the rhythm of the jungle, trekking further and deeper than the shorter tours reach. You'll spend your days spotting wildlife with George — macaques, Thomas leaf monkeys, pig-tailed macaques, and orangutans, with a chance of encountering a large dominant male as well. Each day includes a fresh jungle lunch and fruit snacks, and both nights you'll enjoy a cooked dinner and sleep in simple jungle huts with mosquito nets, falling asleep to the sounds of the rainforest around you. By the final day, you'll have covered real ground and seen a wide range of what this jungle has to offer. As with the shorter tours, you'll finish by floating back to town down the river on an inner tube. A solid choice for travelers who want a proper jungle expedition without going all the way to a full week.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Back</button>
-              </div>
-            </div>
-
+        <a href="tours/3-day.html" class="tour-card">
+          <img src="" alt="PLACEHOLDER: Photo representing the 3-day tour (river tubing / deeper jungle)" class="tour-image">
+          <div class="tour-card-body">
+            <h3>3-Day Jungle Trek</h3>
+            <p class="tour-price">€170 <span>per person</span></p>
+            <p class="tour-description-preview">
+              Go further into the jungle over three days, with two nights among the rainforest sounds and a good chance of spotting orangutans.
+            </p>
+            <span class="tour-card-link">View details →</span>
           </div>
-        </article>
+        </a>
 
         <!-- TOUR CARD: 7 Days -->
-        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
-          <div class="tour-card-inner">
-
-            <!-- FRONT -->
-            <div class="tour-card-front">
-              <img src="" alt="PLACEHOLDER: Photo representing the 7-day tour (expedition-style, remote jungle)" class="tour-image">
-              <div class="tour-card-body">
-                <h3>7-Day Jungle Expedition</h3>
-                <p class="tour-price">€300 <span>per person</span></p>
-                <p class="tour-description-preview">
-                  A full week deep in the Sumatran rainforest — the best chance to see everything the jungle has to offer, from alpha males to hidden trails.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Read more</button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="tour-card-back">
-              <div class="tour-card-body">
-                <p class="tour-description-full">
-                  This is the tour for travelers who want to properly disappear into the jungle for a week and experience it the way George himself knows it. With seven days of trekking, you'll cover far more ground than any of the shorter tours, reaching quieter parts of the forest and spending real time observing wildlife rather than just passing through. You'll have the best chances on any tour of spotting the full range of animals — macaques, Thomas leaf monkeys, pig-tailed macaques, and dominant alpha male orangutans. If you're very lucky, you might even spot a mother with her baby. Every day includes a fresh jungle lunch and fruit snacks, and each night you'll have a cooked dinner and sleep in simple jungle huts with mosquito nets, deep in the rainforest. It's a physically demanding trip, but a genuinely immersive one — this is George's jungle, and a week is enough time to really get to know it. Like the other tours, you'll end your expedition floating back to town down the river on an inner tube.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Back</button>
-              </div>
-            </div>
-
+        <a href="tours/7-day.html" class="tour-card">
+          <img src="" alt="PLACEHOLDER: Photo representing the 7-day tour (expedition-style, remote jungle)" class="tour-image">
+          <div class="tour-card-body">
+            <h3>7-Day Jungle Expedition</h3>
+            <p class="tour-price">€300 <span>per person</span></p>
+            <p class="tour-description-preview">
+              A full week deep in the Sumatran rainforest — the best chance to see everything the jungle has to offer, from alpha males to hidden trails.
+            </p>
+            <span class="tour-card-link">View details →</span>
           </div>
-        </article>
+        </a>
 
       </div>
 
