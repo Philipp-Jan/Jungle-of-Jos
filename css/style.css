@@ -243,9 +243,12 @@ section {
 
 .about-image {
   flex: 1 1 300px;
+  width: min(100%, 400px);
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius);
-  min-height: 250px;
   background-color: var(--color-bg-alt);
+  background-size: cover;
+  background-position: center;
 }
 
 .about-text {
