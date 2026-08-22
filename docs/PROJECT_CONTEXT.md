@@ -1,4 +1,4 @@
-# Project Context: George's Jungle Tours Website
+# Project Context: Jos's Jungle Tours Website
 
 This document captures the background, decisions, and reasoning behind this project.
 It's meant for both AI coding assistants (e.g. GitHub Copilot) and future human
@@ -6,13 +6,13 @@ volunteers who help maintain this site. Read this before making changes.
 
 ## The Client & Purpose
 
-**George** is a local jungle trekking guide based in a small village near the jungle
+**Jos** is a local jungle trekking guide based in a small village near the jungle
 in Sumatra, Indonesia. He has no technical background whatsoever. Previously he
 relied on approaching tourists in person (e.g. at bus stations) to sell tours, but
 this is becoming less effective as tourists increasingly pre-book tours online
 (e.g. via GetYourGuide) before arriving.
 
-**Goal of this website:** give George an online presence so tourists can discover
+**Goal of this website:** give Jos an online presence so tourists can discover
 him and reach out *before* arriving, mainly via WhatsApp and Instagram. This is a
 pure information/marketing site — **no booking system**, no backend, no payment
 processing. Just: inform, build trust, drive contact via WhatsApp/Instagram.
@@ -22,14 +22,14 @@ processing. Just: inform, build trust, drive contact via WhatsApp/Instagram.
 - **Original developer:** an experienced software engineer (Python/FastAPI/JS/React/
   Azure/AWS background) building this as a favor, with the explicit intent to hand
   it off completely and not be involved long-term.
-- **Future maintainers:** random volunteers with "basic" IT affinity that George
+- **Future maintainers:** random volunteers with "basic" IT affinity that Jos
   will informally ask for help later (e.g. "can you update my prices?"). They are
   **not** necessarily professional developers. This heavily influenced every
   technical decision below.
 
 ## Core Constraints (Priority Order)
 
-1. **Near-zero cost.** George has very little money. Hosting must be free or
+1. **Near-zero cost.** Jos has very little money. Hosting must be free or
    extremely cheap. The only accepted recurring cost is a domain (~€10-15/year),
    and even that is an open decision (see "Open Decisions" below).
 2. **Maintainability by non-expert volunteers.** No framework/tooling that could
@@ -85,14 +85,14 @@ processing. Just: inform, build trust, drive contact via WhatsApp/Instagram.
   has NOT been built yet.** This is a known next step.
 
 ### Content updates: code-level, no CMS
-- George cannot use a CMS or edit code himself. Content updates (new tour, price
+- Jos cannot use a CMS or edit code himself. Content updates (new tour, price
   change, new photos) will be done by volunteers editing the HTML/CSS/JSON files
   directly, expected to happen every few months, not in real time.
 - No CMS, no admin panel, no database — deliberately, to avoid another moving part
   that could break or need maintenance/hosting.
 
 ### Booking: none, contact only
-- Booking flows were explicitly rejected as too complex for George to manage.
+- Booking flows were explicitly rejected as too complex for Jos to manage.
   The site only drives users to WhatsApp / Instagram for direct contact.
 
 ## Site Structure (single page, anchor-link navigation)
@@ -102,7 +102,7 @@ One `index.html` with sections linked via anchors (`#about`, `#tours`, `#gallery
 sticky nav.
 
 1. **Hero** — full-width image, headline, WhatsApp/Instagram buttons
-2. **About George** — photo + short bio, builds trust (tourists book a *person*)
+2. **About Jos** — photo + short bio, builds trust (tourists book a *person*)
 3. **Tours** — 4 tour cards (1-day/2-day/3-day/7-day) + a comparison table below
 4. **Gallery** — jungle/wildlife photos (orangutans, macaques, etc.)
 5. **Contact** — WhatsApp/Instagram buttons + rough location text
@@ -128,7 +128,7 @@ sticky nav.
   €300 (7-day / "expedition"). These are already in the HTML.
 - Tour descriptions are currently **Lorem Ipsum placeholders** (5 sentences each,
   matching the developer's stated 3-10 sentence target length) — real copy from
-  George still needs to be written and swapped in.
+  Jos still needs to be written and swapped in.
 - The earlier idea of a "Ask about this tour" button linking to `#contact` was
   deliberately removed — it added no value since Contact is already reachable via
   nav/scroll, and the flip-card "Read more" replaced its role in the card.
@@ -145,7 +145,7 @@ sticky nav.
 - Real pricing in place: €70 (1-day), €130 (2-day), €170 (3-day), €300 (7-day).
 - **All copy is final** (written collaboratively, no more Lorem Ipsum anywhere):
   - Hero headline/subtitle
-  - About George bio
+  - About Jos bio
   - All 4 tour descriptions (preview sentence + full back-of-card text)
   - Tour comparison table (now just "Tour" + "Price" columns, tour names include
     duration e.g. "1-Day Jungle Trek", so the separate Duration column was removed
@@ -154,13 +154,13 @@ sticky nav.
   - Contact section location text ("Based in Bukit Lawang, Sumatra, Indonesia")
   - Footer (copyright year is now auto-updated via JS: `new Date().getFullYear()`,
     so it never needs manual yearly updates)
-  - Branding finalized as **"Jungle of George"** (used in nav logo, page title,
+  - Branding finalized as **"Jungle of Jos"** (used in nav logo, page title,
     meta description, and footer) — this replaced the earlier working name
-    "George's Jungle Tours" everywhere.
+    "Jos's Jungle Tours" everywhere.
 - All images are placeholders: empty `src=""` with descriptive `alt` text stating
   exactly what photo should go there (e.g. `alt="PLACEHOLDER: Orangutan in the
   wild, Sumatran jungle"`) — use these alt texts as the shot list when sourcing
-  photos from George's Instagram or elsewhere.
+  photos from Jos's Instagram or elsewhere.
 - Color scheme: jungle green primary + warm orange/gold accent + WhatsApp green /
   Instagram pink for their respective buttons. All adjustable via CSS variables.
 
@@ -169,7 +169,7 @@ sticky nav.
    do anything. Needs: `lang/en.json` + `lang/id.json` content files, and vanilla
    JS to swap text content based on selection. All English copy is now final and
    ready to be translated to Indonesian and moved into this structure.
-2. **Real photos** — need to source from George's Instagram or take new ones,
+2. **Real photos** — need to source from Jos's Instagram or take new ones,
    matching the `alt` text placeholders throughout the HTML.
 3. **Real WhatsApp/Instagram links** — currently `href="#"` placeholders in Hero
    and Contact sections.
@@ -177,7 +177,7 @@ sticky nav.
    deferred to "the very end" by the developer; structure was prioritized first.
    The developer noted the About section wording may still get minor edits later,
    but is usable as-is for now.
-5. **Domain decision** — George has no domain or hosting currently and doesn't
+5. **Domain decision** — Jos has no domain or hosting currently and doesn't
    understand recurring costs. Still open: who registers/pays for the domain long
    term, or whether to launch on a free subdomain (e.g. GitHub Pages default
    `*.github.io` URL) initially.
@@ -185,11 +185,11 @@ sticky nav.
    "why" behind decisions, but a shorter "how to change a price / add a photo /
    add a language" guide was also planned and not yet written.
 
-## Facts About George & The Tours (for future copy/content work)
+## Facts About Jos & The Tours (for future copy/content work)
 
 Useful background if more copy needs to be written or adjusted later:
 
-- George is 54, born and raised in Bukit Lawang — youngest of eight siblings, his
+- Jos is 54, born and raised in Bukit Lawang — youngest of eight siblings, his
   whole family is local to the village. Two children of his own, who attend
   school in the city.
 - He leads treks himself, backed by a small team of local guides.
