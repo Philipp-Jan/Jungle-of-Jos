@@ -55,6 +55,21 @@ processing. Just: inform, build trust, drive contact via WhatsApp/Instagram.
   (`<!-- ===== SECTION NAME ===== -->`), so a volunteer can scroll to the relevant
   part and edit directly.
 
+### Shared markup: client-side DOM injection
+- Repeated markup on the tour detail pages, such as the contact CTA, is kept in a
+  shared vanilla JavaScript file and inserted into a small placeholder element.
+  For example, tour pages use `<div class="cta-placeholder"></div>` and load
+  `../js/cta.js`.
+- This is not a `fetch()`-based HTML include. Loading a normal local script and
+  writing to the DOM also works when an HTML file is opened directly via
+  `file://`; GitHub Pages serves the same files normally over HTTP.
+- The injected markup stays in the regular document (no Shadow DOM), so the
+  existing CSS classes continue to work. Page-specific differences are passed
+  through simple `data-*` attributes on the placeholder.
+- The trade-off is that the shared markup is not available when JavaScript is
+  disabled. This is acceptable here because the site already uses JavaScript for
+  the automatically updated footer year.
+
 ### Plain CSS, not Tailwind
 - Tailwind (used properly) needs a build step (PostCSS/CLI) to purge unused classes
   — again conflicts with "no build tooling." The no-build CDN version of Tailwind
