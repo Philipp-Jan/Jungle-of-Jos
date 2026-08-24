@@ -66,6 +66,9 @@ processing. Just: inform, build trust, drive contact via WhatsApp/Instagram.
 - The injected markup stays in the regular document (no Shadow DOM), so the
   existing CSS classes continue to work. Page-specific differences are passed
   through simple `data-*` attributes on the placeholder.
+- The shared footer uses `<div class="footer-placeholder"></div>` and loads
+  `js/footer.js` from root pages or `../js/footer.js` from tour pages. The script
+  injects the footer and keeps the copyright year current in one place.
 - The trade-off is that the shared markup is not available when JavaScript is
   disabled. This is acceptable here because the site already uses JavaScript for
   the automatically updated footer year.
@@ -167,8 +170,8 @@ sticky nav.
     as redundant/ambiguous; table width capped at 420px and centered instead of
     spanning full section width)
   - Contact section location text ("Based in Bukit Lawang, Sumatra, Indonesia")
-  - Footer (copyright year is now auto-updated via JS: `new Date().getFullYear()`,
-    so it never needs manual yearly updates)
+  - Footer (shared through `js/footer.js`; the copyright year is auto-updated via
+    `new Date().getFullYear()`, so it never needs manual yearly updates)
   - Branding finalized as **"Jungle of Jos"** (used in nav logo, page title,
     meta description, and footer) — this replaced the earlier working name
     "Jos's Jungle Tours" everywhere.
