@@ -358,6 +358,18 @@ section {
 }
 
 /* Tour comparison table */
+/* Link to the full tour list below the main tour cards */
+.tours-cta {
+  text-align: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.tours-cta p {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+}
+
 .tour-table-wrapper h3 {
   text-align: center;
   margin-bottom: var(--spacing-md);
@@ -690,6 +702,23 @@ section {
 
 .tour-cta .contact-buttons {
   margin-bottom: 0;
+}
+
+/* =================================================
+   GROUP SIZE NOTE (all-tours page)
+   ================================================= */
+.group-size-note {
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+  max-width: 700px;
+}
+
+.group-size-note a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
 }
 
 /* =================================================
