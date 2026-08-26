@@ -69,6 +69,13 @@ processing. Just: inform, build trust, drive contact via WhatsApp/Instagram.
 - The shared footer uses `<div class="footer-placeholder"></div>` and loads
   `js/footer.js` from root pages or `../js/footer.js` from tour pages. The script
   injects the footer and keeps the copyright year current in one place.
+- The shared navigation uses the same pattern with `.nav-placeholder` and
+  `js/nav.js`. It renders the same five links on every page. On the home page,
+  section links use local hashes; on other pages they point to the matching
+  section in `index.html`.
+- Navigation scripts use relative paths rather than paths beginning with `/` or
+  hard-coded domain URLs. This keeps links working on GitHub Pages project sites,
+  custom domains, and local `file://` previews.
 - The trade-off is that the shared markup is not available when JavaScript is
   disabled. This is acceptable here because the site already uses JavaScript for
   the automatically updated footer year.
