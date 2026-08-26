@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jungle of George - Bukit Lawang, Sumatra</title>
-  <meta name="description" content="Jungle of George: guided jungle trekking tours in Bukit Lawang, Sumatra. See wild orangutans, monkeys and rainforest wildlife with a local guide.">
+  <title>Jungle of Jos - Bukit Lawang, Sumatra</title>
+  <meta name="description" content="Jungle of Jos: guided jungle trekking tours in Bukit Lawang, Sumatra. See wild orangutans, monkeys and rainforest wildlife with a local guide.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,22 +12,8 @@
   <!-- ============================================= -->
   <!-- NAVIGATION                                     -->
   <!-- ============================================= -->
-  <header class="site-header">
-    <nav class="navbar">
-      <a href="#hero" class="nav-logo">Jungle of George</a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#tours">Tours</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <!-- Language switcher placeholder - wird in einem späteren Schritt mit JS gefüllt -->
-      <select class="lang-switch" aria-label="Select language">
-        <option value="en">EN</option>
-        <option value="id">ID</option>
-      </select>
-    </nav>
-  </header>
+  <div class="nav-placeholder"></div>
+  <script src="js/nav.js"></script>
 
   <main>
 
@@ -35,9 +21,9 @@
     <!-- HERO SECTION                                   -->
     <!-- ============================================= -->
     <section id="hero" class="hero">
-      <img src="" alt="PLACEHOLDER: Hero image - George or guests standing in the jungle, wide scenic shot" class="hero-bg-image">
+      <img src="" alt="PLACEHOLDER: Hero image - Jos or guests standing in the jungle, wide scenic shot" class="hero-bg-image">
       <div class="hero-content">
-        <h1>Explore Bukit Lawang's Jungle with George</h1>
+        <h1>Explore Bukit Lawang's Jungle with Jos</h1>
         <p class="hero-subtitle">Orangutans, wild monkeys, and rainforest adventure — guided by a local who knows every trail</p>
         <div class="hero-buttons">
           <a href="#" class="btn btn-whatsapp">Message on WhatsApp</a>
@@ -47,15 +33,15 @@
     </section>
 
     <!-- ============================================= -->
-    <!-- ABOUT GEORGE SECTION                           -->
+    <!-- ABOUT Jos SECTION                           -->
     <!-- ============================================= -->
     <section id="about" class="about">
       <div class="about-content">
-        <img src="" alt="PLACEHOLDER: Portrait photo of George, ideally smiling, in the jungle or at the trailhead" class="about-image">
+        <img src="./images/jos2.webp" alt="PLACEHOLDER: Portrait photo of Jos, ideally smiling, in the jungle or at the trailhead" class="about-image">
         <div class="about-text">
-          <h2>About George</h2>
+          <h2>About Jos</h2>
           <p>
-            George has been guiding trekkers through the jungle of Bukit Lawang for many years. Born and raised right here, he's the youngest of eight siblings, and his whole family calls this village home — this jungle isn't just his workplace, it's where he grew up. He leads treks himself, backed by a small team of local guides who know these trails just as well as he does. George speaks English and is always happy to share stories about the forest, its animals, and village life along the way. He's also a proud father of two, and when he's not out trekking, he's happy to help arrange onward travel too — whether that's a bus or private car to Medan, Berastagi, or Lake Toba.
+            Jos has been guiding trekkers through the jungle of Bukit Lawang for many years. Born and raised right here, he's the youngest of eight siblings, and his whole family calls this village home — this jungle isn't just his workplace, it's where he grew up. He leads treks himself, backed by a small team of local guides who know these trails just as well as he does. Jos speaks English and is always happy to share stories about the forest, its animals, and village life along the way. He's also a proud father of two, and when he's not out trekking, he's happy to help arrange onward travel too — whether that's a bus or private car to Medan, Berastagi, or Lake Toba.
           </p>
         </div>
       </div>
@@ -71,156 +57,64 @@
       <div class="tour-cards">
 
         <!-- TOUR CARD: 1 Day -->
-        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
-          <div class="tour-card-inner">
-
-            <!-- FRONT -->
-            <div class="tour-card-front">
-              <img src="" alt="PLACEHOLDER: Photo representing the 1-day tour (short jungle trail / river)" class="tour-image">
-              <div class="tour-card-body">
-                <h3>1-Day Jungle Trek</h3>
-                <p class="tour-price">€70 <span>per person</span></p>
-                <p class="tour-description-preview">
-                  A perfect introduction to the jungle — trek through the rainforest, spot wild monkeys and orangutans, then float back to town on the river.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Read more</button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="tour-card-back">
-              <div class="tour-card-body">
-                <p class="tour-description-full">
-                  This is the perfect choice if you're short on time but still want a real taste of the Sumatran jungle. You'll trek through the rainforest with George, keeping an eye out for long-tailed macaques, Thomas leaf monkeys, and — if you're lucky — wild orangutans swinging through the canopy. Along the way, George shares his knowledge of the forest and its animals, built up over a lifetime in Bukit Lawang. Around midday, you'll stop for a fresh jungle lunch and a snack of local fruit before continuing the trek. At the end of the day, instead of walking back, you'll float down the river on an inner tube — a relaxed and fun way to return to town. A great option for travelers who want to experience the jungle without committing to an overnight stay.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Back</button>
-              </div>
-            </div>
-
+        <!-- TOUR CARD: 3 Hours -->
+        <a href="tours/3-hour.html" class="tour-card">
+          <img src="./images/makak1.webp" alt="PLACEHOLDER: Photo representing the 3-hour tour (short jungle trail near the village)" class="tour-image">
+          <div class="tour-card-body">
+            <h3>3-Hour Jungle Trek</h3>
+            <p class="tour-price">€55 <span>per person</span></p>
+            <p class="tour-description-preview">
+              A short, easy taste of the jungle — perfect if you're tight on time.
+            </p>
+            <span class="tour-card-link">View details →</span>
           </div>
-        </article>
+        </a>
 
         <!-- TOUR CARD: 2 Days -->
-        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
-          <div class="tour-card-inner">
-
-            <!-- FRONT -->
-            <div class="tour-card-front">
-              <img src="" alt="PLACEHOLDER: Photo representing the 2-day tour (camp site / jungle overnight)" class="tour-image">
-              <div class="tour-card-body">
-                <h3>2-Day Jungle Trek</h3>
-                <p class="tour-price">€130 <span>per person</span></p>
-                <p class="tour-description-preview">
-                  A full jungle adventure with a night under mosquito nets in the rainforest — more time, more trails, more chances to spot orangutans.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Read more</button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="tour-card-back">
-              <div class="tour-card-body">
-                <p class="tour-description-full">
-                  With two days in the jungle, you get real time to slow down and explore beyond the trails closest to town. You'll trek deeper into the rainforest with George, spotting macaques, Thomas leaf monkeys, and — with some luck — orangutans along the way. Both days include a fresh jungle lunch and fruit snacks, and on the first night you'll enjoy a cooked dinner before settling into a simple jungle hut with a mosquito net for the night. Falling asleep to the sounds of the rainforest is an experience in itself. On the second day, after more trekking, you'll make your way back to town the fun way — floating down the river on an inner tube. A great choice for travelers who want more than a day trip, without a huge time commitment.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Back</button>
-              </div>
-            </div>
-
+        <a href="tours/2-day.html" class="tour-card">
+          <img src="./images/thomas1.webp" alt="PLACEHOLDER: Photo representing the 2-day tour (camp site / jungle overnight)" class="tour-image">
+          <div class="tour-card-body">
+            <h3>2-Day Jungle Trek</h3>
+            <p class="tour-price">€120 <span>per person</span></p>
+            <p class="tour-description-preview">
+              A full jungle adventure with a night under mosquito nets in the rainforest — more time, more trails, more chances to spot orangutans.
+            </p>
+            <span class="tour-card-link">View details →</span>
           </div>
-        </article>
+        </a>
 
         <!-- TOUR CARD: 3 Days -->
-        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
-          <div class="tour-card-inner">
-
-            <!-- FRONT -->
-            <div class="tour-card-front">
-              <img src="" alt="PLACEHOLDER: Photo representing the 3-day tour (river tubing / deeper jungle)" class="tour-image">
-              <div class="tour-card-body">
-                <h3>3-Day Jungle Trek</h3>
-                <p class="tour-price">€170 <span>per person</span></p>
-                <p class="tour-description-preview">
-                  Go further into the jungle over three days, with two nights among the rainforest sounds and a good chance of spotting orangutans.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Read more</button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="tour-card-back">
-              <div class="tour-card-body">
-                <p class="tour-description-full">
-                  Three days gives you the time to really get into the rhythm of the jungle, trekking further and deeper than the shorter tours reach. You'll spend your days spotting wildlife with George — macaques, Thomas leaf monkeys, pig-tailed macaques, and orangutans, with a chance of encountering a large dominant male as well. Each day includes a fresh jungle lunch and fruit snacks, and both nights you'll enjoy a cooked dinner and sleep in simple jungle huts with mosquito nets, falling asleep to the sounds of the rainforest around you. By the final day, you'll have covered real ground and seen a wide range of what this jungle has to offer. As with the shorter tours, you'll finish by floating back to town down the river on an inner tube. A solid choice for travelers who want a proper jungle expedition without going all the way to a full week.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Back</button>
-              </div>
-            </div>
-
+        <a href="tours/3-day.html" class="tour-card">
+          <img src="./images/orang2.webp" alt="PLACEHOLDER: Photo representing the 3-day tour (river tubing / deeper jungle)" class="tour-image">
+          <div class="tour-card-body">
+            <h3>3-Day Jungle Trek</h3>
+            <p class="tour-price">€170 <span>per person</span></p>
+            <p class="tour-description-preview">
+              Go further into the jungle over three days, with two nights among the rainforest sounds and a good chance of spotting orangutans.
+            </p>
+            <span class="tour-card-link">View details →</span>
           </div>
-        </article>
+        </a>
 
-        <!-- TOUR CARD: 7 Days -->
-        <article class="tour-card" onclick="if(!event.target.closest('.tour-card-flip-btn')){this.classList.toggle('is-flipped')}">
-          <div class="tour-card-inner">
-
-            <!-- FRONT -->
-            <div class="tour-card-front">
-              <img src="" alt="PLACEHOLDER: Photo representing the 7-day tour (expedition-style, remote jungle)" class="tour-image">
-              <div class="tour-card-body">
-                <h3>7-Day Jungle Expedition</h3>
-                <p class="tour-price">€300 <span>per person</span></p>
-                <p class="tour-description-preview">
-                  A full week deep in the Sumatran rainforest — the best chance to see everything the jungle has to offer, from alpha males to hidden trails.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Read more</button>
-              </div>
-            </div>
-
-            <!-- BACK -->
-            <div class="tour-card-back">
-              <div class="tour-card-body">
-                <p class="tour-description-full">
-                  This is the tour for travelers who want to properly disappear into the jungle for a week and experience it the way George himself knows it. With seven days of trekking, you'll cover far more ground than any of the shorter tours, reaching quieter parts of the forest and spending real time observing wildlife rather than just passing through. You'll have the best chances on any tour of spotting the full range of animals — macaques, Thomas leaf monkeys, pig-tailed macaques, and dominant alpha male orangutans. If you're very lucky, you might even spot a mother with her baby. Every day includes a fresh jungle lunch and fruit snacks, and each night you'll have a cooked dinner and sleep in simple jungle huts with mosquito nets, deep in the rainforest. It's a physically demanding trip, but a genuinely immersive one — this is George's jungle, and a week is enough time to really get to know it. Like the other tours, you'll end your expedition floating back to town down the river on an inner tube.
-                </p>
-                <button type="button" class="tour-card-flip-btn">Back</button>
-              </div>
-            </div>
-
+        <!-- TOUR CARD: Kuta Cane Expedition -->
+        <a href="tours/kuta-cane.html" class="tour-card">
+          <img src="./images/orang1.webp" alt="PLACEHOLDER: Photo representing the Kuta Cane expedition (remote, untouched rainforest)" class="tour-image">
+          <div class="tour-card-body">
+            <h3>7-Day Expedition to Kuta Cane</h3>
+            <p class="tour-price">€700 <span>per person</span></p>
+            <p class="tour-description-preview">
+              A challenging one-way trek through remote rainforest — for experienced adventurers.
+            </p>
+            <span class="tour-card-link">View details →</span>
           </div>
-        </article>
+        </a>
 
       </div>
 
-      <!-- TOUR COMPARISON TABLE -->
-      <div class="tour-table-wrapper">
-        <h3>Compare Tours at a Glance</h3>
-        <table class="tour-table">
-          <thead>
-            <tr>
-              <th>Tour</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1-Day Jungle Trek</td>
-              <td>€70</td>
-            </tr>
-            <tr>
-              <td>2-Day Jungle Trek</td>
-              <td>€130</td>
-            </tr>
-            <tr>
-              <td>3-Day Jungle Trek</td>
-              <td>€170</td>
-            </tr>
-            <tr>
-              <td>7-Day Jungle Expedition</td>
-              <td>€300</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- LINK TO FULL TOUR LIST -->
+      <div class="tours-cta">
+        <p>Looking for something different? We also offer 4, 5, and 6-day treks, plus special tours.</p>
+        <a href="tours/all-tours.html" class="btn btn-outline">See all 10 tours →</a>
       </div>
     </section>
 
@@ -232,12 +126,12 @@
       <p class="section-subtitle">A glimpse of what awaits you in the jungle</p>
 
       <div class="gallery-grid">
-        <img src="" alt="PLACEHOLDER: Orangutan in the wild, Sumatran jungle" class="gallery-image">
-        <img src="" alt="PLACEHOLDER: Long-tailed macaque on a tree branch" class="gallery-image">
-        <img src="" alt="PLACEHOLDER: Wide shot of dense Sumatran rainforest canopy" class="gallery-image">
-        <img src="" alt="PLACEHOLDER: River or waterfall in the jungle" class="gallery-image">
-        <img src="" alt="PLACEHOLDER: Group of tourists trekking with George" class="gallery-image">
-        <img src="" alt="PLACEHOLDER: Jungle campsite at night or sunset" class="gallery-image">
+        <img src="./images/gallery/IMG20260815174519.webp" alt="PLACEHOLDER: Orangutan in the wild, Sumatran jungle" class="gallery-image">
+        <img src="./images/gallery/IMG_20260818_145550.webp" alt="PLACEHOLDER: Long-tailed macaque on a tree branch" class="gallery-image">
+        <img src="./images/gallery/IMG_20260818_145705.webp" alt="PLACEHOLDER: Wide shot of dense Sumatran rainforest canopy" class="gallery-image">
+        <img src="./images/gallery/IMG_20260818_153937.webp" alt="PLACEHOLDER: River or waterfall in the jungle" class="gallery-image">
+        <img src="./images/gallery/thomas1.webp" alt="PLACEHOLDER: Group of tourists trekking with Jos" class="gallery-image">
+        <img src="./images/gallery/orangutang2.webp" alt="PLACEHOLDER: Jungle campsite at night or sunset" class="gallery-image">
       </div>
     </section>
 
@@ -246,7 +140,7 @@
     <!-- ============================================= -->
     <section id="contact" class="contact">
       <h2>Get in Touch</h2>
-      <p class="section-subtitle">Ready for your jungle adventure? Reach out directly to George.</p>
+      <p class="section-subtitle">Ready for your jungle adventure? Reach out directly to Jos.</p>
 
       <div class="contact-buttons">
         <a href="#" class="btn btn-whatsapp btn-large">Message on WhatsApp</a>
@@ -263,13 +157,8 @@
   <!-- ============================================= -->
   <!-- FOOTER                                         -->
   <!-- ============================================= -->
-  <footer class="site-footer">
-    <p>&copy; <span id="current-year">2026</span> Jungle of George. All rights reserved.</p>
-  </footer>
-
-  <script>
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-  </script>
+  <div class="footer-placeholder"></div>
+  <script src="js/footer.js"></script>
 
 </body>
 </html>

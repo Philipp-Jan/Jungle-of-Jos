@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Jungle of Jos</title>
+  <meta name="description" content="Frequently asked questions about jungle trekking tours with Jungle of Jos in Bukit Lawang, Sumatra: booking, payment, what to bring, and more.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================= -->
+  <!-- NAVIGATION                                     -->
+  <!-- ============================================= -->
+  <div class="nav-placeholder"></div>
+  <script src="js/nav.js"></script>
+
+  <main>
+
+    <!-- ============================================= -->
+    <!-- FAQ PAGE HEADER                                -->
+    <!-- ============================================= -->
+    <section class="page-header">
+      <h1>Frequently Asked Questions</h1>
+      <p class="section-subtitle">Everything you need to know before your jungle trek</p>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- FAQ ACCORDION                                  -->
+    <!-- ============================================= -->
+    <section class="faq">
+      <div class="faq-accordion">
+
+        <!-- FAQ ITEM: How to Book -->
+        <div class="faq-item" id="how-to-book">
+          <button type="button" class="faq-question">
+            How do I book a tour?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <img src="" alt="PLACEHOLDER: Photo of WhatsApp chat or Jos greeting tourists" class="faq-image">
+            <p>
+              PLACEHOLDER: Explain the booking process step by step — there is no
+              online booking system, everything happens via WhatsApp. Cover: how to
+              message Jos, what info to include (arrival date in Bukit Lawang,
+              preferred start date/tour), how meeting point and time are confirmed,
+              whether transfer from the Bukit Lawang bus station or hotel is
+              needed/available, and that Jos can also help organize transport
+              to/from Bukit Lawang (e.g. Medan, Berastagi, Lake Toba).
+            </p>
+            <p>
+              <strong>Group size:</strong> all tours require a minimum of 2 people to
+              run. If you're traveling alone, Jos can often place you with an
+              existing group — but this can't always be guaranteed for the next
+              available day, so you may need to join a group whose trek is already
+              scheduled. Let Jos know as early as possible if you're booking solo.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ ITEM: Payment -->
+        <div class="faq-item" id="payment">
+          <button type="button" class="faq-question">
+            How do I pay?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              PLACEHOLDER: Payment is cash only, paid in person — no online payment
+              or deposit required. Mention this is based on trust since there's no
+              advance booking system.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ ITEM: What to Bring / Equipment -->
+        <div class="faq-item" id="equipment">
+          <button type="button" class="faq-question">
+            What should I bring?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <img src="" alt="PLACEHOLDER: Photo of packed backpack or trekking gear laid out" class="faq-image">
+            <p>
+              PLACEHOLDER: General packing list valid for all tours (light backpack,
+              rain jacket, sturdy shoes, insect repellent, sunscreen, reusable water
+              bottle, etc. — to be filled in with real details). Note that the list
+              varies slightly by tour length (e.g. more clothing for the 7-day trek)
+              — see the specific tour page for details. Also mention what can be
+              left at the hotel (e.g. large luggage, valuables not needed on trek).
+            </p>
+            <p>
+              PLACEHOLDER: Fitness requirements — general trekking fitness level
+              needed, note if any tour requires more stamina than others.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ ITEM: Weather & Cancellation -->
+        <div class="faq-item" id="weather-cancellation">
+          <button type="button" class="faq-question">
+            What happens if the weather is bad?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              PLACEHOLDER: Explain that in case of severe storms, a tour may be
+              spontaneously postponed or cancelled for safety reasons, though this
+              is rare. Since there's no advance payment, there's no refund process
+              needed — this is handled on a trust basis between traveler and guide.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ ITEM: placeholder for additional common questions -->
+        <div class="faq-item" id="general">
+          <button type="button" class="faq-question">
+            [Additional question placeholder]
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              PLACEHOLDER: Space for more FAQ items as they come up — e.g. group
+              size, age/children policy, language spoken on tour, travel insurance
+              recommendation, etc.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================= -->
+  <!-- FOOTER                                         -->
+  <!-- ============================================= -->
+  <div class="footer-placeholder"></div>
+  <script src="js/footer.js"></script>
+
+  <script>
+    // Accordion toggle behavior
+    document.querySelectorAll('.faq-question').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var item = button.closest('.faq-item');
+        item.classList.toggle('is-open');
+      });
+    });
+
+    // Deep-link support: if the URL has a #hash matching a FAQ item,
+    // automatically open that item and scroll to it.
+    // This allows links like "faq.html#how-to-book" from other pages
+    // (e.g. the nav's "How to Book" link) to land directly on an opened answer.
+    function openFaqFromHash() {
+      var hash = window.location.hash.replace('#', '');
+      if (!hash) return;
+      var target = document.getElementById(hash);
+      if (target && target.classList.contains('faq-item')) {
+        target.classList.add('is-open');
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', openFaqFromHash);
+    window.addEventListener('hashchange', openFaqFromHash);
+  </script>
+
+</body>
+</html>
