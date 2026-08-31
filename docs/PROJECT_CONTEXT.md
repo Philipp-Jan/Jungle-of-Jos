@@ -63,7 +63,7 @@ fitness information, and booking guidance.
 
 Repeated markup is injected into placeholders by normal local scripts:
 
-- `js/nav.js` inserts the navigation and language selector.
+- `js/nav.js` inserts the navigation.
 - `js/footer.js` inserts the footer and current copyright year.
 - `js/cta.js` inserts the contact CTA on tour pages.
 
@@ -135,8 +135,6 @@ Implemented:
 
 Still incomplete or requiring review:
 
-- The EN/ID selector is displayed by `js/nav.js`, but no language-switching
-  logic or `lang/` files exist yet.
 - WhatsApp links are still `href="#"` placeholders.
 - Some pages have empty image sources or placeholder alt text. Existing image
   files are mixed with unverified assets; check ownership, suitability, and

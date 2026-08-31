@@ -174,12 +174,6 @@ section {
   color: var(--color-primary);
 }
 
-.lang-switch {
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  background-color: var(--color-bg);
-}
 
 /* =================================================
    HERO SECTION

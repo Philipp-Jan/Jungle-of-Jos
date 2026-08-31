@@ -19,10 +19,6 @@
             '<li><a href="' + rootPrefix + 'faq.html">FAQ</a></li>' +
             '<li><a href="' + (isHomePage ? '#contact' : homePath + '#contact') + '">Contact</a></li>' +
           '</ul>' +
-          '<select class="lang-switch" aria-label="Select language">' +
-            '<option value="en">EN</option>' +
-            '<option value="id">ID</option>' +
-          '</select>' +
         '</nav>' +
       '</header>';
   });
