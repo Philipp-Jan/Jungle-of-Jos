@@ -6,8 +6,8 @@
   --color-primary: #2d5f3f;
   --color-primary-dark: #1e4029;
   --color-accent: #d99a3d;
-  --color-accent-dark: #b87f2b;
-  --color-whatsapp: #25d366;
+  --color-accent-dark: #b87f2b;  --color-accent-soft: rgba(217, 154, 61, 0.14);
+  --color-accent-soft-border: rgba(217, 154, 61, 0.28);  --color-whatsapp: #25d366;
   --color-whatsapp-dark: #1eab52;
   --color-instagram: #c1327a;
   --color-instagram-dark: #9c2762;
@@ -15,6 +15,7 @@
   --color-text-light: #5a5a5a;
   --color-bg: #ffffff;
   --color-bg-alt: #f4f1ea;
+  --color-bg-accent: #f8dda2;
   --color-border: #e0ddd4;
 
   /* Spacing */
@@ -603,25 +604,58 @@ section {
   list-style: none;
   max-width: 700px;
   margin: 0 auto;
-  border-left: 3px solid var(--color-primary);
-  padding-left: var(--spacing-lg);
+  padding-left: 0;
 }
 
 .itinerary-step {
   position: relative;
-  margin-bottom: var(--spacing-lg);
+  padding: 0 0 var(--spacing-lg) calc(var(--spacing-lg) - 3px);
+  border-left: 3px solid var(--color-primary);
+}
+
+.itinerary-step:last-child {
+  padding-bottom: 0;
 }
 
 .itinerary-step::before {
   content: "";
   position: absolute;
-  left: calc(-1 * var(--spacing-lg) - 8px);
+  left: -8px;
   top: 4px;
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background-color: var(--color-accent);
   border: 2px solid var(--color-bg);
+}
+
+.itinerary-day-break {
+  position: relative;
+  margin: var(--spacing-lg) 0;
+  text-align: center;
+  list-style: none;
+}
+
+.itinerary-day-break::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 1px solid rgba(217, 154, 61, 0.45);
+  transform: translateY(-50%);
+}
+
+.itinerary-day-break span {
+  position: relative;
+  display: inline-block;
+  background: var(--color-bg);
+  padding: 0 0.85rem;
+  color: var(--color-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .itinerary-time {
