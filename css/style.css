@@ -294,9 +294,13 @@ section {
 
 .tour-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
+}
+
+.tour-cards:has(> .tour-card:nth-child(4)) {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 /* Tour cards are simple link cards - the whole card links to the tour's detail page */
@@ -778,6 +782,9 @@ section {
    RESPONSIVE - small screens
    ================================================= */
 @media (max-width: 600px) {
+  .tour-cards {
+    grid-template-columns: 1fr;
+  }
   .navbar {
     justify-content: center;
   }
