@@ -455,8 +455,15 @@ section {
    ================================================= */
 .tours {
   position: relative;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-alt) 88%, var(--color-accent) 12%), var(--color-bg-alt) 50%);
   max-width: none;
+}
+
+/* .is-tinted marks which .tours sections get the beige wash - a page can
+   have several .tours sections back to back (see all-tours.html) and they
+   should alternate white/tinted/white, not all render the same color. */
+.tours.is-tinted,
+.whats-included {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-alt) 88%, var(--color-accent) 12%), var(--color-bg-alt) 50%);
 }
 
 .tours > h2,
@@ -901,7 +908,6 @@ section {
    ================================================= */
 .whats-included {
   position: relative;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-alt) 88%, var(--color-accent) 12%), var(--color-bg-alt) 50%);
   max-width: none;
 }
 
@@ -909,8 +915,8 @@ section {
    the white sections above/below with a soft curve. The mask supplies only
    the shape - background-color still comes from a variable, so the wave
    automatically matches whatever color the neighboring section actually is. */
-.tours::before,
-.tours::after,
+.tours.is-tinted::before,
+.tours.is-tinted::after,
 .whats-included::before,
 .whats-included::after {
   content: "";
@@ -928,13 +934,13 @@ section {
   pointer-events: none;
 }
 
-.tours::before,
+.tours.is-tinted::before,
 .whats-included::before {
   top: -1px;
   transform: scaleY(-1);
 }
 
-.tours::after,
+.tours.is-tinted::after,
 .whats-included::after {
   bottom: -1px;
 }
@@ -991,12 +997,34 @@ section {
 /* =================================================
    GROUP SIZE NOTE (all-tours page)
    ================================================= */
+/* A quiet, self-contained info box - kept small and muted on purpose so it
+   reads as a helpful aside rather than competing with the tour cards above
+   it, with margin on all sides so it doesn't sit flush against the footer. */
 .group-size-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
   background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-accent-soft-border);
   border-radius: var(--radius);
   padding: var(--spacing-md) var(--spacing-lg);
-  text-align: center;
+  text-align: left;
   max-width: 700px;
+  margin: var(--spacing-xl) auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.group-size-note-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.15rem;
+  color: var(--color-accent-dark);
+}
+
+.group-size-note p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
 }
 
 .group-size-note a {
