@@ -19,14 +19,30 @@
   --color-border: #e0ddd4;
 
   /* Spacing */
+  --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
   --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
 
   /* Layout */
   --max-width: 1100px;
   --radius: 8px;
+
+  /* Elevation - subtle shadows for depth (used on cards, buttons, sticky header) */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.14);
+
+  /* Diagonal hairline pattern shown behind images that have no src yet */
+  --placeholder-pattern: repeating-linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 14px
+  );
 }
 
 /* =================================================
@@ -52,13 +68,30 @@ body {
 h1, h2, h3 {
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--color-primary-dark);
 }
 
 h2 {
   font-size: 2rem;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   text-align: center;
+  position: relative;
+  padding-bottom: var(--spacing-md);
+}
+
+/* Short accent rule under every section heading, gives sections a visual anchor
+   instead of just centered bold text. */
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--color-accent);
 }
 
 h3 {
@@ -78,6 +111,16 @@ img {
 
 ul {
   list-style: none;
+}
+
+/* Consistent keyboard-focus ring across links, buttons, and the FAQ toggles.
+   :focus-visible skips the ring for mouse clicks and only shows it for keyboard/assistive use. */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 section {
@@ -104,7 +147,18 @@ section {
   border-radius: var(--radius);
   font-weight: 600;
   text-align: center;
-  transition: background-color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-whatsapp {
@@ -127,10 +181,12 @@ section {
   background-color: transparent;
   border: 2px solid var(--color-primary);
   color: var(--color-primary);
+  box-shadow: none;
 }
 .btn-outline:hover {
   background-color: var(--color-primary);
   color: #fff;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-large {
@@ -146,6 +202,7 @@ section {
   top: 0;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
   z-index: 100;
 }
 
@@ -194,6 +251,12 @@ section {
   padding: var(--spacing-xl) var(--spacing-md);
   background-color: var(--color-primary-dark);
   overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
 }
 
 .hero-bg-image {
@@ -267,8 +330,10 @@ section {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
+  background-image: var(--placeholder-pattern);
   background-size: cover;
   background-position: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .about-text {
@@ -311,12 +376,13 @@ section {
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tour-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .tour-image {
@@ -324,6 +390,7 @@ section {
   height: 160px;
   object-fit: cover;
   background-color: var(--color-border);
+  background-image: var(--placeholder-pattern);
   flex-shrink: 0;
 }
 
@@ -436,6 +503,14 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
+  background-image: var(--placeholder-pattern);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-image:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 /* =================================================
@@ -495,6 +570,7 @@ section {
   border-radius: var(--radius);
   overflow: hidden;
   background-color: var(--color-bg);
+  box-shadow: var(--shadow-sm);
   scroll-margin-top: 90px; /* keeps the opened item visible below the sticky nav */
 }
 
@@ -554,6 +630,7 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
+  background-image: var(--placeholder-pattern);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -566,6 +643,8 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
+  background-image: var(--placeholder-pattern);
+  box-shadow: var(--shadow-sm);
   margin-bottom: var(--spacing-lg);
 }
 
@@ -593,7 +672,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-text-light);
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .quick-fact-value {
@@ -692,11 +771,11 @@ section {
   font-weight: 700;
   color: var(--color-accent-dark);
   font-size: 0.9rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .itinerary-content h3 {
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .itinerary-content p {
