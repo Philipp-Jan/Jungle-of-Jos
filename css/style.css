@@ -357,15 +357,14 @@ section {
   margin-right: auto;
 }
 
+/* auto-fit sizes columns to the available width (up to 4 per row on desktop)
+   instead of a fixed column count, so cards stay a readable width on
+   in-between screen sizes instead of being squeezed into 3-4 fixed columns. */
 .tour-cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
-}
-
-.tour-cards:has(> .tour-card:nth-child(4)) {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 /* Tour cards are simple link cards - the whole card links to the tour's detail page */
@@ -861,9 +860,6 @@ section {
    RESPONSIVE - small screens
    ================================================= */
 @media (max-width: 600px) {
-  .tour-cards {
-    grid-template-columns: 1fr;
-  }
   .navbar {
     justify-content: center;
   }
