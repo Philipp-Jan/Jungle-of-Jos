@@ -8,7 +8,8 @@
   var homePath = isHomePage ? '' : rootPrefix + 'index.html';
 
   document.querySelectorAll('.nav-placeholder').forEach(function (placeholder) {
-    placeholder.innerHTML =
+    var wrapper = document.createElement('div');
+    wrapper.innerHTML =
       '<header class="site-header">' +
         '<nav class="navbar">' +
           '<a href="' + (isHomePage ? '#hero' : homePath + '#hero') + '" class="nav-logo">Jungle of Jos</a>' +
@@ -25,6 +26,11 @@
           '</ul>' +
         '</nav>' +
       '</header>';
+    // Replace the placeholder itself (not just its contents) so the sticky
+    // header's containing block is <body>, not a same-height wrapper div -
+    // a wrapper exactly as tall as the header leaves position: sticky no
+    // room to stick, and it silently scrolls away after one header-height.
+    placeholder.replaceWith(wrapper.firstElementChild);
   });
 
   // Hamburger toggle for narrow screens - opens/closes the nav-links dropdown.
