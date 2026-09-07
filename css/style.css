@@ -462,7 +462,8 @@ section {
    have several .tours sections back to back (see all-tours.html) and they
    should alternate white/tinted/white, not all render the same color. */
 .tours.is-tinted,
-.whats-included {
+.whats-included,
+.page-header {
   background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-alt) 88%, var(--color-accent) 12%), var(--color-bg-alt) 50%);
 }
 
@@ -666,9 +667,15 @@ section {
 /* =================================================
    PAGE HEADER (for sub-pages like FAQ, tour details)
    ================================================= */
+/* Reuses the .tours.is-tinted/.whats-included gradient + wave treatment
+   below, rather than introducing a separate decorative language just for
+   this element - every sub-page effectively opens with the same "hero-lite"
+   band before its first white section. */
 .page-header {
+  position: relative;
   text-align: center;
-  padding-top: var(--spacing-xl);
+  max-width: none;
+  padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) + 40px);
 }
 
 .page-header h1 {
@@ -918,7 +925,8 @@ section {
 .tours.is-tinted::before,
 .tours.is-tinted::after,
 .whats-included::before,
-.whats-included::after {
+.whats-included::after,
+.page-header::after {
   content: "";
   position: absolute;
   left: 0;
@@ -941,7 +949,8 @@ section {
 }
 
 .tours.is-tinted::after,
-.whats-included::after {
+.whats-included::after,
+.page-header::after {
   bottom: -1px;
 }
 
@@ -999,7 +1008,9 @@ section {
    ================================================= */
 /* A quiet, self-contained info box - kept small and muted on purpose so it
    reads as a helpful aside rather than competing with the tour cards above
-   it, with margin on all sides so it doesn't sit flush against the footer. */
+   it. No top margin: the preceding section's own bottom padding already
+   provides that clearance, so adding more on top of it was doubling up.
+   Bottom margin keeps it from sitting flush against the footer. */
 .group-size-note {
   display: flex;
   align-items: flex-start;
@@ -1010,7 +1021,7 @@ section {
   padding: var(--spacing-md) var(--spacing-lg);
   text-align: left;
   max-width: 700px;
-  margin: var(--spacing-xl) auto;
+  margin: 0 auto var(--spacing-xl);
   box-shadow: var(--shadow-sm);
 }
 
