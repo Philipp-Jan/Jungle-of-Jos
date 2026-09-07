@@ -201,20 +201,25 @@ section {
   position: sticky;
   top: 0;
   background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
   z-index: 100;
+  padding: var(--spacing-sm) var(--spacing-md) 0;
 }
 
+/* The navbar itself is the floating "pill" - the header above just reserves
+   the gap around it so it stays clear of the viewport edge while sticky. */
 .navbar {
   max-width: var(--max-width);
-  margin: 0 auto;
+  margin: 0 auto var(--spacing-sm);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   flex-wrap: wrap;
   gap: var(--spacing-sm);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-logo {
@@ -536,10 +541,13 @@ section {
    ================================================= */
 .site-footer {
   text-align: center;
-  padding: var(--spacing-lg) var(--spacing-md);
-  background-color: var(--color-primary-dark);
+  padding: var(--spacing-md);
+  /* Darkens toward the corner using the existing primary color, no separate
+     "darkest" variable to keep in sync if --color-primary-dark ever changes. */
+  background: linear-gradient(165deg, var(--color-primary-dark), color-mix(in srgb, var(--color-primary-dark) 55%, black));
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  border-radius: 28px 28px 0 0;
 }
 
 /* =================================================
