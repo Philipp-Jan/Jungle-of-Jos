@@ -140,11 +140,20 @@
   <script src="js/footer.js"></script>
 
   <script>
-    // Accordion toggle behavior
+    // Accordion toggle behavior - only one item open at a time, so opening
+    // one closes whichever else was already open.
+    function closeOtherFaqItems(except) {
+      document.querySelectorAll('.faq-item.is-open').forEach(function (item) {
+        if (item !== except) item.classList.remove('is-open');
+      });
+    }
+
     document.querySelectorAll('.faq-question').forEach(function (button) {
       button.addEventListener('click', function () {
         var item = button.closest('.faq-item');
-        item.classList.toggle('is-open');
+        var wasOpen = item.classList.contains('is-open');
+        closeOtherFaqItems(item);
+        item.classList.toggle('is-open', !wasOpen);
       });
     });
 
@@ -157,6 +166,7 @@
       if (!hash) return;
       var target = document.getElementById(hash);
       if (target && target.classList.contains('faq-item')) {
+        closeOtherFaqItems(target);
         target.classList.add('is-open');
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
