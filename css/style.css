@@ -19,14 +19,38 @@
   --color-border: #e0ddd4;
 
   /* Spacing */
+  --spacing-xs: 0.25rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
   --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
 
   /* Layout */
   --max-width: 1100px;
-  --radius: 8px;
+  --radius: 14px;
+  /* Fallback before nav.js measures the real header height; kept close to it
+     so there's no visible layout jump once JS runs. */
+  --header-height: 73px;
+
+  /* A gentle wave silhouette (solid fill on transparent) used purely as a
+     mask shape - see .tours/.whats-included below - so the actual visible
+     color still comes from each element's own background-color variable. */
+  --wave-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100' preserveAspectRatio='none'%3E%3Cpath d='M0,32 C240,90 480,0 720,40 C960,80 1200,10 1440,56 L1440,100 L0,100 Z' fill='%23000'/%3E%3C/svg%3E");
+
+  /* Elevation - subtle shadows for depth (used on cards, buttons, sticky header) */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.14);
+
+  /* Diagonal hairline pattern shown behind images that have no src yet */
+  --placeholder-pattern: repeating-linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.05),
+    rgba(0, 0, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 14px
+  );
 }
 
 /* =================================================
@@ -47,18 +71,44 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   line-height: 1.6;
+  /* Reserves the header's own height since it's now position: fixed and no
+     longer occupies space in normal flow. */
+  padding-top: var(--header-height);
+}
+
+/* Anchor targets for the nav's #hero/#about/#contact links, so the fixed
+   header (shown or freshly revealed) doesn't cover the section's heading. */
+section[id] {
+  scroll-margin-top: var(--header-height);
 }
 
 h1, h2, h3 {
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--color-primary-dark);
 }
 
 h2 {
   font-size: 2rem;
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
   text-align: center;
+  position: relative;
+  padding-bottom: var(--spacing-md);
+}
+
+/* Short accent rule under every section heading, gives sections a visual anchor
+   instead of just centered bold text. */
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--color-accent);
 }
 
 h3 {
@@ -78,6 +128,16 @@ img {
 
 ul {
   list-style: none;
+}
+
+/* Consistent keyboard-focus ring across links, buttons, and the FAQ toggles.
+   :focus-visible skips the ring for mouse clicks and only shows it for keyboard/assistive use. */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 section {
@@ -104,7 +164,18 @@ section {
   border-radius: var(--radius);
   font-weight: 600;
   text-align: center;
-  transition: background-color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-whatsapp {
@@ -127,10 +198,12 @@ section {
   background-color: transparent;
   border: 2px solid var(--color-primary);
   color: var(--color-primary);
+  box-shadow: none;
 }
 .btn-outline:hover {
   background-color: var(--color-primary);
   color: #fff;
+  box-shadow: var(--shadow-md);
 }
 
 .btn-large {
@@ -141,23 +214,36 @@ section {
 /* =================================================
    HEADER / NAVIGATION
    ================================================= */
+/* Fixed so it can float over page content once it reappears mid-page (see
+   nav.js): visible by default, slides up out of view while scrolling down
+   or after a few seconds of no scrolling, and slides back in on any
+   upward scroll. */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
   z-index: 100;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar {
+  position: relative;
   max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-sm) var(--spacing-md);
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  gap: var(--spacing-md);
 }
 
 .nav-logo {
@@ -168,15 +254,96 @@ section {
 
 .nav-links {
   display: flex;
-  gap: var(--spacing-lg);
+  align-items: center;
+  gap: var(--spacing-sm);
 }
 
+/* Chip-style links: a soft accent background/border on hover and keyboard
+   focus, instead of only a text color change, so they read as interactive. */
 .nav-links a {
-  font-weight: 500;
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  font-weight: 600;
   color: var(--color-text);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
-.nav-links a:hover {
-  color: var(--color-primary);
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background-color: var(--color-accent-soft);
+  border-color: var(--color-accent-soft-border);
+  color: var(--color-primary-dark);
+}
+
+/* Hamburger toggle - hidden on wide screens, shown once the nav links no
+   longer fit in one row (see the max-width: 700px block below). */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: none;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+  background-color: var(--color-accent-soft);
+}
+
+.nav-toggle-bar {
+  display: block;
+  height: 2px;
+  background-color: var(--color-primary-dark);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle.is-active .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.is-active .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.is-active .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 700px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-sm);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .nav-links.is-open {
+    max-height: 400px; /* large enough to fit all links; not a hard content limit */
+  }
+
+  .nav-links a {
+    padding: 0.85rem 1rem;
+  }
 }
 
 
@@ -194,6 +361,12 @@ section {
   padding: var(--spacing-xl) var(--spacing-md);
   background-color: var(--color-primary-dark);
   overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
 }
 
 .hero-bg-image {
@@ -267,8 +440,10 @@ section {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
+  background-image: var(--placeholder-pattern);
   background-size: cover;
   background-position: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .about-text {
@@ -279,8 +454,26 @@ section {
    TOURS SECTION
    ================================================= */
 .tours {
-  background-color: var(--color-bg-alt);
+  position: relative;
   max-width: none;
+}
+
+/* .is-tinted marks which .tours sections get the beige wash - a page can
+   have several .tours sections back to back (see all-tours.html) and they
+   should alternate white/tinted/white, not all render the same color. */
+.tours.is-tinted,
+.whats-included,
+.page-header {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-alt) 88%, var(--color-accent) 12%), var(--color-bg-alt) 50%);
+}
+
+/* The top wave dips up to ~55px into the section (see --wave-mask below),
+   which barely clears the default section padding-top (64px) - the heading
+   ended up looking cramped right against it. Extra top padding here only,
+   since .tours sections without .is-tinted don't own a top wave at all. */
+.tours.is-tinted,
+.whats-included {
+  padding-top: calc(var(--spacing-xl) + 32px);
 }
 
 .tours > h2,
@@ -292,15 +485,14 @@ section {
   margin-right: auto;
 }
 
+/* auto-fit sizes columns to the available width (up to 4 per row on desktop)
+   instead of a fixed column count, so cards stay a readable width on
+   in-between screen sizes instead of being squeezed into 3-4 fixed columns. */
 .tour-cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
-}
-
-.tour-cards:has(> .tour-card:nth-child(4)) {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 /* Tour cards are simple link cards - the whole card links to the tour's detail page */
@@ -309,14 +501,15 @@ section {
   flex-direction: column;
   background-color: var(--color-bg);
   border-radius: var(--radius);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-accent-soft-border);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tour-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
 }
 
 .tour-image {
@@ -324,6 +517,7 @@ section {
   height: 160px;
   object-fit: cover;
   background-color: var(--color-border);
+  background-image: var(--placeholder-pattern);
   flex-shrink: 0;
 }
 
@@ -436,6 +630,14 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
+  background-image: var(--placeholder-pattern);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-image:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
 }
 
 /* =================================================
@@ -462,18 +664,27 @@ section {
    ================================================= */
 .site-footer {
   text-align: center;
-  padding: var(--spacing-lg) var(--spacing-md);
-  background-color: var(--color-primary-dark);
+  padding: var(--spacing-md);
+  /* Darkens toward the corner using the existing primary color, no separate
+     "darkest" variable to keep in sync if --color-primary-dark ever changes. */
+  background: linear-gradient(165deg, var(--color-primary-dark), color-mix(in srgb, var(--color-primary-dark) 55%, black));
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  border-radius: 28px 28px 0 0;
 }
 
 /* =================================================
    PAGE HEADER (for sub-pages like FAQ, tour details)
    ================================================= */
+/* Reuses the .tours.is-tinted/.whats-included gradient + wave treatment
+   below, rather than introducing a separate decorative language just for
+   this element - every sub-page effectively opens with the same "hero-lite"
+   band before its first white section. */
 .page-header {
+  position: relative;
   text-align: center;
-  padding-top: var(--spacing-xl);
+  max-width: none;
+  padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) + 40px);
 }
 
 .page-header h1 {
@@ -491,11 +702,12 @@ section {
 }
 
 .faq-item {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-accent-soft-border);
   border-radius: var(--radius);
   overflow: hidden;
   background-color: var(--color-bg);
-  scroll-margin-top: 90px; /* keeps the opened item visible below the sticky nav */
+  box-shadow: var(--shadow-sm);
+  scroll-margin-top: calc(var(--header-height) + var(--spacing-md)); /* keeps the opened item clear of the header when it's visible */
 }
 
 .faq-question {
@@ -554,6 +766,7 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
+  background-image: var(--placeholder-pattern);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -566,6 +779,8 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
+  background-image: var(--placeholder-pattern);
+  box-shadow: var(--shadow-sm);
   margin-bottom: var(--spacing-lg);
 }
 
@@ -593,7 +808,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-text-light);
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .quick-fact-value {
@@ -692,11 +907,11 @@ section {
   font-weight: 700;
   color: var(--color-accent-dark);
   font-size: 0.9rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .itinerary-content h3 {
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--spacing-xs);
 }
 
 .itinerary-content p {
@@ -708,8 +923,44 @@ section {
    WHAT'S INCLUDED
    ================================================= */
 .whats-included {
-  background-color: var(--color-bg-alt);
+  position: relative;
   max-width: none;
+}
+
+/* Wave dividers: replace the hard straight line where these beige bands meet
+   the white sections above/below with a soft curve. The mask supplies only
+   the shape - background-color still comes from a variable, so the wave
+   automatically matches whatever color the neighboring section actually is. */
+.tours.is-tinted::before,
+.tours.is-tinted::after,
+.whats-included::before,
+.whats-included::after,
+.page-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background-color: var(--color-bg);
+  -webkit-mask-image: var(--wave-mask);
+  mask-image: var(--wave-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.tours.is-tinted::before,
+.whats-included::before {
+  top: -1px;
+  transform: scaleY(-1);
+}
+
+.tours.is-tinted::after,
+.whats-included::after,
+.page-header::after {
+  bottom: -1px;
 }
 
 .whats-included > h2,
@@ -764,12 +1015,46 @@ section {
 /* =================================================
    GROUP SIZE NOTE (all-tours page)
    ================================================= */
+/* A quiet, self-contained info box - kept small and muted on purpose so it
+   reads as a helpful aside rather than competing with the tour cards above
+   it. No top margin: the preceding section's own bottom padding already
+   provides that clearance, so adding more on top of it was doubling up.
+   Bottom margin keeps it from sitting flush against the footer. */
 .group-size-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
   background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-accent-soft-border);
   border-radius: var(--radius);
   padding: var(--spacing-md) var(--spacing-lg);
-  text-align: center;
+  text-align: left;
   max-width: 700px;
+  margin: 0 auto var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Below ~700px (this box's own max-width) there's no leftover width for the
+   margin: auto centering to distribute, so the card's border/background
+   were rendering flush against the screen edges instead of just its text. */
+@media (max-width: 700px) {
+  .group-size-note {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
+}
+
+.group-size-note-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.15rem;
+  color: var(--color-accent-dark);
+}
+
+.group-size-note p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
 }
 
 .group-size-note a {
@@ -782,15 +1067,6 @@ section {
    RESPONSIVE - small screens
    ================================================= */
 @media (max-width: 600px) {
-  .tour-cards {
-    grid-template-columns: 1fr;
-  }
-  .navbar {
-    justify-content: center;
-  }
-  .nav-links {
-    gap: var(--spacing-md);
-  }
   .hero-content h1 {
     font-size: 1.8rem;
   }
