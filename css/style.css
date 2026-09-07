@@ -467,6 +467,15 @@ section {
   background: linear-gradient(180deg, color-mix(in srgb, var(--color-bg-alt) 88%, var(--color-accent) 12%), var(--color-bg-alt) 50%);
 }
 
+/* The top wave dips up to ~55px into the section (see --wave-mask below),
+   which barely clears the default section padding-top (64px) - the heading
+   ended up looking cramped right against it. Extra top padding here only,
+   since .tours sections without .is-tinted don't own a top wave at all. */
+.tours.is-tinted,
+.whats-included {
+  padding-top: calc(var(--spacing-xl) + 32px);
+}
+
 .tours > h2,
 .tours > .section-subtitle,
 .tour-cards,
