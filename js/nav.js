@@ -38,6 +38,7 @@
   document.querySelectorAll('.site-header').forEach(function (header) {
     var HIDE_AFTER_IDLE_MS = 2500;
     var SCROLL_THRESHOLD = 4; // ignores sub-pixel/trackpad jitter
+    var TOP_ZONE = 10; // while this close to the very top, behave like a normal (non-hiding) header
     var idleTimer = null;
     var lastScrollY = window.scrollY;
 
@@ -51,9 +52,13 @@
       return links && links.classList.contains('is-open');
     }
 
+    function isAtTop() {
+      return window.scrollY <= TOP_ZONE;
+    }
+
     function armIdleHide() {
       clearTimeout(idleTimer);
-      if (menuIsOpen()) return; // don't hide the header out from under an open mobile menu
+      if (menuIsOpen() || isAtTop()) return; // stay visible at the top, and don't fight an open mobile menu
       idleTimer = setTimeout(function () {
         header.classList.add('is-hidden');
       }, HIDE_AFTER_IDLE_MS);
@@ -62,8 +67,15 @@
     window.addEventListener('scroll', function () {
       if (menuIsOpen()) return;
       var currentScrollY = window.scrollY;
-      var delta = currentScrollY - lastScrollY;
 
+      if (isAtTop()) {
+        header.classList.remove('is-hidden');
+        lastScrollY = currentScrollY;
+        clearTimeout(idleTimer); // no idle auto-hide while at the very top
+        return;
+      }
+
+      var delta = currentScrollY - lastScrollY;
       if (Math.abs(delta) > SCROLL_THRESHOLD) {
         header.classList.toggle('is-hidden', delta > 0);
         lastScrollY = currentScrollY;
