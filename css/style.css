@@ -1034,6 +1034,16 @@ section {
   box-shadow: var(--shadow-sm);
 }
 
+/* Below ~700px (this box's own max-width) there's no leftover width for the
+   margin: auto centering to distribute, so the card's border/background
+   were rendering flush against the screen edges instead of just its text. */
+@media (max-width: 700px) {
+  .group-size-note {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
+}
+
 .group-size-note-icon {
   flex-shrink: 0;
   width: 22px;
