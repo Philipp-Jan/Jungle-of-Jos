@@ -29,6 +29,9 @@
   /* Layout */
   --max-width: 1100px;
   --radius: 8px;
+  /* Fallback before nav.js measures the real header height; kept close to it
+     so there's no visible layout jump once JS runs. */
+  --header-height: 73px;
 
   /* Elevation - subtle shadows for depth (used on cards, buttons, sticky header) */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -63,6 +66,15 @@ body {
   color: var(--color-text);
   background-color: var(--color-bg);
   line-height: 1.6;
+  /* Reserves the header's own height since it's now position: fixed and no
+     longer occupies space in normal flow. */
+  padding-top: var(--header-height);
+}
+
+/* Anchor targets for the nav's #hero/#about/#contact links, so the fixed
+   header (shown or freshly revealed) doesn't cover the section's heading. */
+section[id] {
+  scroll-margin-top: var(--header-height);
 }
 
 h1, h2, h3 {
@@ -197,13 +209,25 @@ section {
 /* =================================================
    HEADER / NAVIGATION
    ================================================= */
+/* Fixed so it can float over page content once it reappears mid-page (see
+   nav.js): visible by default, slides up out of view while scrolling down
+   or after a few seconds of no scrolling, and slides back in on any
+   upward scroll. */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
   z-index: 100;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
 }
 
 .navbar {
@@ -654,7 +678,7 @@ section {
   overflow: hidden;
   background-color: var(--color-bg);
   box-shadow: var(--shadow-sm);
-  scroll-margin-top: 90px; /* keeps the opened item visible below the sticky nav */
+  scroll-margin-top: calc(var(--header-height) + var(--spacing-md)); /* keeps the opened item clear of the header when it's visible */
 }
 
 .faq-question {

@@ -26,11 +26,52 @@
           '</ul>' +
         '</nav>' +
       '</header>';
-    // Replace the placeholder itself (not just its contents) so the sticky
-    // header's containing block is <body>, not a same-height wrapper div -
-    // a wrapper exactly as tall as the header leaves position: sticky no
-    // room to stick, and it silently scrolls away after one header-height.
+    // Replace the placeholder itself (not just its contents) so it doesn't
+    // linger in the DOM as an empty wrapper div once the header is inserted.
     placeholder.replaceWith(wrapper.firstElementChild);
+  });
+
+  // Auto-hide header: visible at first, but hides itself after a few
+  // seconds of no scrolling, hides immediately on scroll-down (leaving with
+  // the rest of the page), and reappears - floating over the page content -
+  // on any scroll-up, wherever on the page that happens.
+  document.querySelectorAll('.site-header').forEach(function (header) {
+    var HIDE_AFTER_IDLE_MS = 2500;
+    var SCROLL_THRESHOLD = 4; // ignores sub-pixel/trackpad jitter
+    var idleTimer = null;
+    var lastScrollY = window.scrollY;
+
+    document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+    window.addEventListener('resize', function () {
+      document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+    });
+
+    function menuIsOpen() {
+      var links = header.querySelector('.nav-links');
+      return links && links.classList.contains('is-open');
+    }
+
+    function armIdleHide() {
+      clearTimeout(idleTimer);
+      if (menuIsOpen()) return; // don't hide the header out from under an open mobile menu
+      idleTimer = setTimeout(function () {
+        header.classList.add('is-hidden');
+      }, HIDE_AFTER_IDLE_MS);
+    }
+
+    window.addEventListener('scroll', function () {
+      if (menuIsOpen()) return;
+      var currentScrollY = window.scrollY;
+      var delta = currentScrollY - lastScrollY;
+
+      if (Math.abs(delta) > SCROLL_THRESHOLD) {
+        header.classList.toggle('is-hidden', delta > 0);
+        lastScrollY = currentScrollY;
+        armIdleHide();
+      }
+    }, { passive: true });
+
+    armIdleHide();
   });
 
   // Hamburger toggle for narrow screens - opens/closes the nav-links dropdown.
