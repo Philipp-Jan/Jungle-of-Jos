@@ -427,9 +427,15 @@ section {
 
   .hero-buttons .btn,
   .contact-buttons .btn {
-    width: min(100%, 260px);
-    max-width: 260px;
+    /* Width used to be a fixed 260px, but that left the WhatsApp button's
+       label only a few px of breathing room after the Inter font swap -
+       any slightly wider font rendering (browser/device differences) was
+       enough to wrap it to two lines. Sizing to content instead removes
+       that fragility entirely. */
+    width: auto;
+    max-width: min(100%, 300px);
     flex-basis: auto;
+    white-space: nowrap;
   }
 }
 
@@ -1125,9 +1131,12 @@ section {
    dark hero), and a translucent box loses all contrast there. Positioned
    above whichever WhatsApp button was clicked (see js/whatsapp-notice.js).
    Fades in fast, holds for a few seconds, then fades out slowly - timings
-   live in the JS file, not here, since JS drives the class toggling. */
+   live in the JS file, not here, since JS drives the class toggling.
+   position: absolute (not fixed) and top/left set in document coordinates
+   (button rect + scroll offset) so the toast scrolls away with the button
+   instead of staying pinned to the viewport and covering other content. */
 .whatsapp-coming-soon-toast {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   display: none;
   align-items: flex-start;

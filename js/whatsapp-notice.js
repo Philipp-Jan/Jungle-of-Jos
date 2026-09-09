@@ -29,12 +29,18 @@
 
     el.style.display = 'flex';
 
+    // Document coordinates (viewport rect + scroll offset), not viewport
+    // coordinates, since the toast is position: absolute - this way it
+    // scrolls away together with the button instead of staying pinned to
+    // the screen and covering whatever content scrolls up underneath it.
     var buttonRect = button.getBoundingClientRect();
     var toastRect = el.getBoundingClientRect();
     var margin = 12;
-    var left = buttonRect.left + buttonRect.width / 2 - toastRect.width / 2;
-    left = Math.max(margin, Math.min(left, window.innerWidth - toastRect.width - margin));
-    var top = buttonRect.top - toastRect.height - 10;
+    var left = buttonRect.left + window.scrollX + buttonRect.width / 2 - toastRect.width / 2;
+    var minLeft = window.scrollX + margin;
+    var maxLeft = window.scrollX + window.innerWidth - toastRect.width - margin;
+    left = Math.max(minLeft, Math.min(left, maxLeft));
+    var top = buttonRect.top + window.scrollY - toastRect.height - 10;
 
     el.style.left = left + 'px';
     el.style.top = top + 'px';
