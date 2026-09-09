@@ -1098,12 +1098,6 @@ section {
   font-size: 0.95rem;
 }
 
-.construction-note a {
-  color: var(--color-primary);
-  font-weight: 600;
-  text-decoration: underline;
-}
-
 /* =================================================
    RESPONSIVE - small screens
    ================================================= */
