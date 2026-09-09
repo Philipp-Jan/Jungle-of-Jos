@@ -7,7 +7,7 @@
   );
   var homePath = isHomePage ? '' : rootPrefix + 'index.html';
 
-  document.querySelectorAll('.nav-placeholder').forEach(function (placeholder) {
+  document.querySelectorAll('.nav-mount').forEach(function (placeholder) {
     var wrapper = document.createElement('div');
     wrapper.innerHTML =
       '<header class="site-header">' +

@@ -1,5 +1,5 @@
 (function () {
-  document.querySelectorAll('.footer-placeholder').forEach(function (placeholder) {
+  document.querySelectorAll('.footer-mount').forEach(function (placeholder) {
     var footer = document.createElement('footer');
     footer.className = 'site-footer';
     footer.innerHTML =
