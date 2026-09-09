@@ -1,3 +1,8 @@
+/* Archivo (headings) is a neutral, sturdy modern grotesque - clean and
+   confident without the whimsy of a display serif or the softness of a
+   rounded sans. Paired with Inter for clean, neutral body text. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+
 /* =================================================
    CSS VARIABLES - change colors/spacing here globally
    ================================================= */
@@ -7,7 +12,9 @@
   --color-primary-dark: #1e4029;
   --color-accent: #d99a3d;
   --color-accent-dark: #b87f2b;  --color-accent-soft: rgba(217, 154, 61, 0.14);
-  --color-accent-soft-border: rgba(217, 154, 61, 0.28);  --color-whatsapp: #25d366;
+  --color-accent-soft-border: rgba(217, 154, 61, 0.28);  --color-danger-dark: #b5443d;
+  --color-danger-soft: rgba(197, 68, 61, 0.1);
+  --color-danger-soft-border: rgba(197, 68, 61, 0.3);  --color-whatsapp: #25d366;
   --color-whatsapp-dark: #1eab52;
   --color-instagram: #c1327a;
   --color-instagram-dark: #9c2762;
@@ -67,7 +74,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--color-text);
   background-color: var(--color-bg);
   line-height: 1.6;
@@ -83,6 +90,7 @@ section[id] {
 }
 
 h1, h2, h3 {
+  font-family: "Archivo", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -247,6 +255,7 @@ section {
 }
 
 .nav-logo {
+  font-family: "Archivo", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--color-primary-dark);
@@ -673,6 +682,16 @@ section {
   border-radius: 28px 28px 0 0;
 }
 
+.site-footer-note {
+  margin-top: var(--spacing-xs);
+  opacity: 0.75;
+}
+
+.site-footer-note a {
+  color: #fff;
+  font-weight: 600;
+}
+
 /* =================================================
    PAGE HEADER (for sub-pages like FAQ, tour details)
    ================================================= */
@@ -1034,16 +1053,6 @@ section {
   box-shadow: var(--shadow-sm);
 }
 
-/* Below ~700px (this box's own max-width) there's no leftover width for the
-   margin: auto centering to distribute, so the card's border/background
-   were rendering flush against the screen edges instead of just its text. */
-@media (max-width: 700px) {
-  .group-size-note {
-    margin-left: var(--spacing-md);
-    margin-right: var(--spacing-md);
-  }
-}
-
 .group-size-note-icon {
   flex-shrink: 0;
   width: 22px;
@@ -1061,6 +1070,50 @@ section {
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: underline;
+}
+
+/* =================================================
+   CONSTRUCTION NOTE (tour pages not yet filled in)
+   ================================================= */
+/* Same layout as .group-size-note, recolored red so an unfinished tour
+   page reads as a clear heads-up rather than a routine info aside. */
+.construction-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  background-color: var(--color-danger-soft);
+  border: 1px solid var(--color-danger-soft-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.construction-note-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.15rem;
+  color: var(--color-danger-dark);
+}
+
+.construction-note p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+/* Below ~700px (both boxes' own max-width) there's no leftover width for the
+   margin: auto centering to distribute, so the card's border/background
+   were rendering flush against the screen edges instead of just its text.
+   Declared after both boxes' base rules so it actually wins the cascade. */
+@media (max-width: 700px) {
+  .group-size-note,
+  .construction-note {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
 }
 
 /* =================================================
