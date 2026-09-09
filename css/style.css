@@ -7,7 +7,9 @@
   --color-primary-dark: #1e4029;
   --color-accent: #d99a3d;
   --color-accent-dark: #b87f2b;  --color-accent-soft: rgba(217, 154, 61, 0.14);
-  --color-accent-soft-border: rgba(217, 154, 61, 0.28);  --color-whatsapp: #25d366;
+  --color-accent-soft-border: rgba(217, 154, 61, 0.28);  --color-danger-dark: #b5443d;
+  --color-danger-soft: rgba(197, 68, 61, 0.1);
+  --color-danger-soft-border: rgba(197, 68, 61, 0.3);  --color-whatsapp: #25d366;
   --color-whatsapp-dark: #1eab52;
   --color-instagram: #c1327a;
   --color-instagram-dark: #9c2762;
@@ -1038,7 +1040,8 @@ section {
    margin: auto centering to distribute, so the card's border/background
    were rendering flush against the screen edges instead of just its text. */
 @media (max-width: 700px) {
-  .group-size-note {
+  .group-size-note,
+  .construction-note {
     margin-left: var(--spacing-md);
     margin-right: var(--spacing-md);
   }
@@ -1058,6 +1061,44 @@ section {
 }
 
 .group-size-note a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* =================================================
+   CONSTRUCTION NOTE (tour pages not yet filled in)
+   ================================================= */
+/* Same layout as .group-size-note, recolored red so an unfinished tour
+   page reads as a clear heads-up rather than a routine info aside. */
+.construction-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  background-color: var(--color-danger-soft);
+  border: 1px solid var(--color-danger-soft-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.construction-note-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.15rem;
+  color: var(--color-danger-dark);
+}
+
+.construction-note p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.construction-note a {
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: underline;
