@@ -1036,17 +1036,6 @@ section {
   box-shadow: var(--shadow-sm);
 }
 
-/* Below ~700px (this box's own max-width) there's no leftover width for the
-   margin: auto centering to distribute, so the card's border/background
-   were rendering flush against the screen edges instead of just its text. */
-@media (max-width: 700px) {
-  .group-size-note,
-  .construction-note {
-    margin-left: var(--spacing-md);
-    margin-right: var(--spacing-md);
-  }
-}
-
 .group-size-note-icon {
   flex-shrink: 0;
   width: 22px;
@@ -1096,6 +1085,18 @@ section {
 .construction-note p {
   color: var(--color-text-light);
   font-size: 0.95rem;
+}
+
+/* Below ~700px (both boxes' own max-width) there's no leftover width for the
+   margin: auto centering to distribute, so the card's border/background
+   were rendering flush against the screen edges instead of just its text.
+   Declared after both boxes' base rules so it actually wins the cascade. */
+@media (max-width: 700px) {
+  .group-size-note,
+  .construction-note {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
 }
 
 /* =================================================
