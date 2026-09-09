@@ -675,6 +675,16 @@ section {
   border-radius: 28px 28px 0 0;
 }
 
+.site-footer-note {
+  margin-top: var(--spacing-xs);
+  opacity: 0.75;
+}
+
+.site-footer-note a {
+  color: #fff;
+  font-weight: 600;
+}
+
 /* =================================================
    PAGE HEADER (for sub-pages like FAQ, tour details)
    ================================================= */
