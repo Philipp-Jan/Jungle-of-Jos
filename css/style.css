@@ -1,6 +1,7 @@
-/* Fraunces (headings) pairs a warm, slightly organic serif with Inter (body
-   text) for a travel/eco feel without tipping into novelty-font territory. */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+/* Barlow Semi Condensed (headings) reads sturdy and outdoorsy - trail-sign /
+   expedition-badge lettering - without the whimsy of a display serif or the
+   softness of a rounded sans. Paired with Inter for clean, neutral body text. */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 /* =================================================
    CSS VARIABLES - change colors/spacing here globally
@@ -89,7 +90,7 @@ section[id] {
 }
 
 h1, h2, h3 {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "Barlow Semi Condensed", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -254,9 +255,10 @@ section {
 }
 
 .nav-logo {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: "Barlow Semi Condensed", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
   color: var(--color-primary-dark);
 }
 
