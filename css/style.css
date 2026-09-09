@@ -514,7 +514,7 @@ section {
 
 .tour-image {
   width: 100%;
-  height: 160px;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   background-color: var(--color-border);
   background-image: var(--placeholder-pattern);
