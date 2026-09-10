@@ -7,7 +7,7 @@
   );
   var homePath = isHomePage ? '' : rootPrefix + 'index.html';
 
-  document.querySelectorAll('.nav-placeholder').forEach(function (placeholder) {
+  document.querySelectorAll('.nav-mount').forEach(function (mount) {
     var wrapper = document.createElement('div');
     wrapper.innerHTML =
       '<header class="site-header">' +
@@ -26,9 +26,9 @@
           '</ul>' +
         '</nav>' +
       '</header>';
-    // Replace the placeholder itself (not just its contents) so it doesn't
+    // Replace the mount itself (not just its contents) so it doesn't
     // linger in the DOM as an empty wrapper div once the header is inserted.
-    placeholder.replaceWith(wrapper.firstElementChild);
+    mount.replaceWith(wrapper.firstElementChild);
   });
 
   // Auto-hide header: visible at first, but hides itself after a few

@@ -51,7 +51,7 @@
   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.14);
 
   /* Diagonal hairline pattern shown behind images that have no src yet */
-  --placeholder-pattern: repeating-linear-gradient(
+  --image-missing: repeating-linear-gradient(
     135deg,
     rgba(0, 0, 0, 0.05),
     rgba(0, 0, 0, 0.05) 1px,
@@ -463,7 +463,7 @@ section {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
-  background-image: var(--placeholder-pattern);
+  background-image: var(--image-missing);
   background-size: cover;
   background-position: center;
   box-shadow: var(--shadow-sm);
@@ -540,7 +540,7 @@ section {
   aspect-ratio: 3 / 2;
   object-fit: cover;
   background-color: var(--color-border);
-  background-image: var(--placeholder-pattern);
+  background-image: var(--image-missing);
   flex-shrink: 0;
 }
 
@@ -653,7 +653,7 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
-  background-image: var(--placeholder-pattern);
+  background-image: var(--image-missing);
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -799,7 +799,7 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
-  background-image: var(--placeholder-pattern);
+  background-image: var(--image-missing);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -812,7 +812,7 @@ section {
   object-fit: cover;
   border-radius: var(--radius);
   background-color: var(--color-bg-alt);
-  background-image: var(--placeholder-pattern);
+  background-image: var(--image-missing);
   box-shadow: var(--shadow-sm);
   margin-bottom: var(--spacing-lg);
 }
