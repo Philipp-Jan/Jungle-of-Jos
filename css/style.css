@@ -792,6 +792,39 @@ section {
   margin-bottom: 0;
 }
 
+.faq-answer ul {
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.faq-answer ul:last-child {
+  margin-bottom: 0;
+}
+
+/* Small accent-gold dot bullets, matching the same --color-accent dots
+   already used on the itinerary steps, instead of the site-wide
+   `ul { list-style: none }` reset leaving these as unmarked plain lines. */
+.faq-answer li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: var(--color-text-light);
+}
+
+.faq-answer li:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
 .faq-image {
   width: 100%;
   max-width: 400px;
