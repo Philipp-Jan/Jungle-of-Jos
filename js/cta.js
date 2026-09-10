@@ -1,8 +1,8 @@
 (function () {
   var defaultTitle = 'Ready for the trek?';
 
-  function renderCta(placeholder) {
-    var title = placeholder.dataset.title || defaultTitle;
+  function renderCta(mount) {
+    var title = mount.dataset.title || defaultTitle;
     var section = document.createElement('section');
     section.className = 'tour-cta';
 
@@ -17,8 +17,8 @@
 
     section.appendChild(heading);
     section.appendChild(buttons);
-    placeholder.replaceWith(section);
+    mount.replaceWith(section);
   }
 
-  document.querySelectorAll('.cta-placeholder').forEach(renderCta);
+  document.querySelectorAll('.cta-mount').forEach(renderCta);
 }());

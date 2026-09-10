@@ -20,16 +20,13 @@ site is made from ordinary HTML, CSS, and JavaScript files.
 Tour summaries are in `index.html` and `tours/all-tours.html`. Full descriptions,
 itineraries, and inclusions are in the matching file under `tours/`. FAQ content
 is in `faq.html`.
-
-Replace `PLACEHOLDER` text only when the real information has been confirmed.
 Do not promise a wildlife sighting or invent itinerary times.
 
 ### Add or replace a photo
 
 1. Put the image in `images/` or `images/gallery/`.
 2. Change the relevant `src` in the HTML file.
-3. Replace the `PLACEHOLDER` alt text with an accurate description of the
-	actual image.
+3. Describe alt text what is visible, not what it is for.
 4. Check that the image is approved for use and displays well on a phone.
 
 Existing image files are not automatically considered approved final assets.
